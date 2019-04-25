@@ -68,7 +68,7 @@ The libray works with Form Control and ngModel:
 
 
 ## <a name="3"></a>Patterns
-###Default patterns:
+### Default patterns:
 
 ```typescript
 patterns = {
