@@ -13,8 +13,8 @@ export class SimpleMaskDirective extends SimpleMask {
   @Input() clearIfNotMatch: boolean;
 
   constructor(
-    @Self() public ngControl: NgControl,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    @Self() public ngControl?: NgControl
   ) { 
     super();
   }
