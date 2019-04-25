@@ -65,7 +65,18 @@ The libray works with Form Control and ngModel:
     [(ngModel)]="value">
 ```
 
+### Pipe
 
+You can use the SimpleMaskPipe:
+```html
+<p>{{ '123321123-12' | simpleMask:'999.999.999-99' }}<p>
+```
+output: <p>123.321.123-12</p>
+
+With custom patterns:
+```html
+<p>{{ '123321123-12' | simpleMask:'999.999.999-99':{'9': '[0-9]' } }}<p>
+```
 
 ## <a name="3"></a>Patterns
 ### Default patterns:
