@@ -21,7 +21,7 @@ import { SimpleMaskModule } from 'ngx-ion-simple-mask'
 
 Or import the directive/pipe separately
 ```typescript
-import { MaskDirective, MaskPipe } from 'ngx-ion-simple-mask'
+import { SimpleMaskDirective, SimpleMaskPipe } from 'ngx-ion-simple-mask'
 
 @NgModule({
   imports: [
