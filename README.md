@@ -24,7 +24,7 @@ Or import the directive/pipe separately
 import { SimpleMaskDirective, SimpleMaskPipe } from 'ngx-ion-simple-mask'
 
 @NgModule({
-  imports: [
+  declarations: [
     SimpleMaskDirective,
     SimpleMaskPipe
   ]
