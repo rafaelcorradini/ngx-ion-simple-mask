@@ -33,9 +33,7 @@ import sourcemaps from 'rollup-plugin-sourcemaps';
  */
 const globals = {
     '@angular/core': 'ng.core',
-    '@angular/common': 'ng.common',
-    'rxjs': 'rxjs',
-    'rxjs/operators': 'rxjs.operators'
+    '@angular/common': 'ng.common'
 };
 
 export default {

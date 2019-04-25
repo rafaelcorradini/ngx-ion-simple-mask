@@ -1,7 +1,7 @@
 {
     "name": "ngx-ion-simple-mask",
     "private": true,
-    "version": "0.8.0",
+    "version": "0.8.5",
     "description": "A simple angular/ionic input mask(Tested in Ionic 4)",
     "main": "./bundles/ngx-ion-simple-mask.umd.js",
     "module": "./fesm5/ngx-ion-simple-mask.js",
@@ -89,7 +89,6 @@
         "rollup-plugin-license": "0.7.0",
         "rollup-plugin-node-resolve": "3.4.0",
         "rollup-plugin-sourcemaps": "0.4.2",
-        "rxjs": "6.3.3",
         "shelljs": "0.8.2",
         "source-map-loader": "0.2.4",
         "ts-loader": "5.2.2",
