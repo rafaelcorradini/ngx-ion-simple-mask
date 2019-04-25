@@ -44,10 +44,10 @@ export default {
     onwarn: () => { return },
     output: {
         format: 'umd',
-        name: 'ng.angularLibraryStarter',
+        name: 'ng.simpleMask',
         globals: globals,
         sourcemap: true,
         exports: 'named',
-        amd: { id: 'angular-library-starter' }
+        amd: { id: 'ngx-ion-simple-mask' }
     }
 }

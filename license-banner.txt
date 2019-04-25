@@ -1,4 +1,4 @@
 /**
- * @license angular-library-starter
+ * @license ngx-ion-simple-mask
  * MIT license
  */
