@@ -1,10 +1,10 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Mask } from 'src/mask';
+import { SimpleMask } from '../simple-mask';
 
 @Pipe({
-  name: 'maskText'
+  name: 'simpleMask'
 })
-export class MaskTextPipe extends Mask implements PipeTransform {
+export class SimpleMaskPipe extends SimpleMask implements PipeTransform {
   // default patterns
   protected patterns: any = {
     '9': new RegExp('[0-9]'),
@@ -20,14 +20,18 @@ export class MaskTextPipe extends Mask implements PipeTransform {
     super();
   }
 
-  transform(value: any, mask: string, patterns?: any): any {
+  transform(value: string, mask: string, patterns?: any): string {
     if (mask) {
       this.mask = mask;
     } else {
-      throw new Error('A mask is required on maskText pipe');
+      throw new Error('A mask is required on simpleMask pipe');
     }
+
     if (patterns) {
-      this.patterns = patterns;
+      this.patterns = {};
+      Object.keys(patterns).forEach((key) => {
+        this.patterns[key] = new RegExp(patterns[key]);
+      });
     }
     return this.fitToMask(value);
   }

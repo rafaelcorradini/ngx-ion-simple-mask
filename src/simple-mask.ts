@@ -1,20 +1,19 @@
-import { Injectable } from '@angular/core';
-
-/** Mask used on answer component */
-@Injectable()
-export abstract class Mask {
-  // default patterns
-  protected abstract patterns: any;
-  abstract mask: string;
-
-  constructor() { }
-
+export class SimpleMask {
+  protected patterns: any = {
+    '9': new RegExp('[0-9]'),
+    'a': new RegExp('[a-z]'),
+    'A': new RegExp('[A-Z]'),
+    'x': new RegExp('[a-zA-Z]'),
+    '*': new RegExp('[a-zA-Z0-9]'),
+    '~': new RegExp('[-\+]')
+  };
+  mask: string;
   /**
-   * checks if the char is special, that is, if is a pattern
+   * checks if the char is a pattern, that is, if is a pattern
    * @param char value to check
-   * @returns true is special, false if is not
+   * @returns true is a pattern, false if is not
    */
-  protected isSpecialChar(char: string) {
+  protected isPattern(char: string) {
     let found = false;
     Object.keys(this.patterns).forEach((key) => {
       if (key === char) {
@@ -37,7 +36,7 @@ export abstract class Mask {
     const size = this.mask.replace('\\', '').length;
     value = value.substring(0, size);
 
-    for (let i = 0, j = 0; j < this.mask.length && i < value.length; i++, j++) {
+    for (let i = 0, j = 0; j < this.mask.length && i < value.length; i++ , j++) {
       // ignore next special char
       if (this.mask[j] === '\\') {
         newValue += this.mask[j + 1];
@@ -45,7 +44,7 @@ export abstract class Mask {
         continue;
       }
       // test special char
-      if (this.isSpecialChar(this.mask[j])) {
+      if (this.isPattern(this.mask[j])) {
         if (this.patterns[this.mask[j]].test(value[i])) {
           newValue += value[i];
         } else {

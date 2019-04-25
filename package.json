@@ -1,8 +1,8 @@
 {
-    "name": "ngx-ion-mask",
+    "name": "ngx-ion-simple-mask",
     "private": true,
-    "version": "0.0.1",
-    "description": "Build an Angular library compatible with AoT compilation and Tree shaking like an official package",
+    "version": "0.9.0",
+    "description": "A simple angular/ionic input mask(Tested in Ionic 4)",
     "main": "./bundles/angular-library-starter.umd.js",
     "module": "./fesm5/angular-library-starter.js",
     "es2015": "./fesm2015/angular-library-starter.js",
@@ -24,37 +24,51 @@
     "author": "",
     "repository": {
         "type": "git",
-        "url": "https://github.com/robisim74/angular-library-starter.git"
+        "url": "https://github.com/rafaelcorradini/ngx-ion-simple-mask"
     },
     "bugs": {
-        "url": "https://github.com/robisim74/angular-library-starter/issues"
+        "url": "https://github.com/rafaelcorradini/ngx-ion-simple-mask/issues"
     },
-    "homepage": "https://github.com/robisim74/angular-library-starter",
+    "homepage": "https://github.com/rafaelcorradini/ngx-ion-simple-mask",
     "keywords": [
         "angular",
         "javascript",
-        "typescript"
+        "typescript",
+        "ionic",
+        "mask",
+        "ngx",
+        "ngx-mask",
+        "ion-mask"
     ],
     "license": "MIT",
     "dependencies": {
         "tslib": "^1.9.0"
     },
     "peerDependencies": {
-        "rxjs": ">= 6.0.0",
         "@angular/common": ">= 7.0.0",
-        "@angular/core": ">= 7.0.0"
+        "@angular/core": ">= 7.0.0",
+        "@angular/forms": ">= 7.0.0"
     },
     "devDependencies": {
+        "@angular-devkit/architect": "~0.13.8",
+        "@angular-devkit/build-angular": "~0.13.8",
+        "@angular-devkit/core": "~7.2.3",
+        "@angular-devkit/schematics": "~7.2.3",
+        "@angular/cli": "~7.3.8",
+        "@angular/language-service": "~7.2.12",
+        "@ionic/angular-toolkit": "~1.4.0",
         "@angular/animations": "7.0.0",
         "@angular/common": "7.0.0",
         "@angular/compiler": "7.0.0",
         "@angular/forms": "7.0.0",
         "@angular/compiler-cli": "7.0.0",
         "@angular/core": "7.0.0",
+        "@angular/router": "^7.0.0",
         "@angular/platform-browser": "7.0.0",
         "@angular/platform-browser-dynamic": "7.0.0",
         "@angular/platform-server": "7.0.0",
         "@compodoc/compodoc": "1.1.7",
+        "@ionic/angular": "^4.0.0",
         "@types/jasmine": "2.8.9",
         "@types/node": "10.12.0",
         "chalk": "2.4.1",

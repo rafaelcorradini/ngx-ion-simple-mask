@@ -1,23 +1,15 @@
 import { Directive, HostListener, Input, Injectable, Self, Renderer2 } from '@angular/core';
 import { NgControl } from '@angular/forms';
-import { Mask } from 'src/mask';
+import { SimpleMask } from '../simple-mask';
 
 @Directive({
-  selector: '[ngx-ion-mask]'
+  selector: '[simpleMask]'
 })
+
 /** Mask used on answer component */
 @Injectable()
-export class MaskTextDirective extends Mask {
-  // default patterns
-  protected patterns: any = {
-    '9': new RegExp('[0-9]'),
-    'a': new RegExp('[a-z]'),
-    'A': new RegExp('[A-Z]'),
-    'x': new RegExp('[a-zA-Z]'),
-    '*': new RegExp('[a-zA-Z0-9]'),
-    '~': new RegExp('[-\+]')
-  };
-  @Input('mask') mask: string;
+export class SimpleMaskDirective extends SimpleMask {
+  @Input('simpleMask') mask: string;
   @Input() clearIfNotMatch: boolean;
 
   constructor(
@@ -25,13 +17,6 @@ export class MaskTextDirective extends Mask {
     private renderer: Renderer2
   ) { 
     super();
-  }
-
-  @HostListener('keyup', ['$event'])
-  onKeyUp(event: KeyboardEvent): void {
-    const el: HTMLInputElement = <HTMLInputElement>event.target;
-    const value = this.fitToMask(el.value);
-    this.writeValue(value, event.target);
   }
 
   @HostListener('input', ['$event'])
@@ -112,5 +97,4 @@ export class MaskTextDirective extends Mask {
 
     return value.length === size ? true : false;
   }
-
 }
