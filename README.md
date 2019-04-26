@@ -1,3 +1,5 @@
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/rafaelcorradini/ngx-ion-simple-mask/master/LICENSE)
+[![Build Status](https://travis-ci.com/rafaelcorradini/ngx-ion-simple-mask.svg?branch=master)](https://travis-ci.com/rafaelcorradini/ngx-ion-simple-mask)
 # ngx-ion-simple-Mask
 
 ## <a name="1"></a> Installing
@@ -35,34 +37,25 @@ import { SimpleMaskDirective, SimpleMaskPipe } from 'ngx-ion-simple-mask'
 
 ionic usage example:
 ```html
-<ion-input
-    simpleMask="999.999.999-99"
-    [clearIfNotMatch]="true">
-</ion-input>
+<ion-input simpleMask="999.999.999-99" [clearIfNotMatch]="true"></ion-input>
 ```
 
 ### Angular
 
 Angular usage example:
 ```html
-<input
-    simpleMask="999.999.999-99"
-    [clearIfNotMatch]="true">
+<input simpleMask="999.999.999-99" [clearIfNotMatch]="true">
 ```
 
 ### Form Control/NgModel
 
 The libray works with Form Control and ngModel:
 ```html
-<input
-    simpleMask="999.999.999-99"
-    [formControl]="formControl">
+<input simpleMask="999.999.999-99" [formControl]="formControl">
 ```
 
 ```html
-<input
-    simpleMask="999.999.999-99"
-    [(ngModel)]="value">
+<input simpleMask="999.999.999-99" [(ngModel)]="value">
 ```
 
 ### Pipe
@@ -124,9 +117,7 @@ example of input: abc123
 
 The set strings will be used as regex
 ```html
-<input
-    simpleMask="~III999"
-    [addPatterns]="{ 'I', '[a-z]' }">
+<input simpleMask="~III999" [addPatterns]="{ 'I', '[a-z]' }">
 ```
 example of input: +abc123
 
