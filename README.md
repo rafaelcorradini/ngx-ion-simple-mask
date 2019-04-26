@@ -60,7 +60,7 @@ The libray works with Form Control and ngModel:
 
 ### Pipe
 
-You can use the SimpleMaskPipe:
+#### example
 ```html
 <p>{{ '123321123-12' | simpleMask:'999.999.999-99' }}<p>
 ```
@@ -69,7 +69,7 @@ output:
 <p>123.321.123-12</p>
 ```
 
-Add Patterns:
+#### example with add patterns
 ```html
 <p>{{ 'asd-123' | simpleMask:'aaa-II':{'I': '[0-9]' } }}<p>
 ```
@@ -78,7 +78,7 @@ output:
 <p>123.321.123-12</p>
 ```
 
-New Patterns:
+#### example with new patterns(ignoring old patterns)
 ```html
 <p>{{ '123-bddd' | simpleMask:'III-aaa':{'I': '[0-9]' }:true }}<p>
 ```
@@ -116,7 +116,7 @@ patterns = {
 | mask | example |
 | ------- | ------- |
 | 999.999.aaa | 113.123.asd |
-| (AA) 999 | AS 123 |
+| (AA) 999 | (AS) 123 |
 | 999\x | 999x |
 
 ### Set new patterns
