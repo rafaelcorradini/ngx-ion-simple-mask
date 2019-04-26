@@ -20,4 +20,14 @@ describe('MaskPipe', () => {
       );
       expect(res).toBe('ASD');
     });
+
+    it('should set patterns, remove old, and fit on mask', () => {
+      const res = pipe.transform(
+        'ASD123',
+        'III',
+        { 'I': '[A-Z]' },
+        true
+      );
+      expect(res).toBe('ASD');
+    });
   });

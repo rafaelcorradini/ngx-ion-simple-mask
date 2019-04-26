@@ -64,11 +64,27 @@ You can use the SimpleMaskPipe:
 ```html
 <p>{{ '123321123-12' | simpleMask:'999.999.999-99' }}<p>
 ```
-output: <p>123.321.123-12</p>
-
-With custom patterns:
+output: 
 ```html
-<p>{{ '123321123-12' | simpleMask:'999.999.999-99':{'9': '[0-9]' } }}<p>
+<p>123.321.123-12</p>
+```
+
+Add Patterns:
+```html
+<p>{{ 'asd-123' | simpleMask:'aaa-II':{'I': '[0-9]' } }}<p>
+```
+output: 
+```html
+<p>123.321.123-12</p>
+```
+
+New Patterns:
+```html
+<p>{{ '123-bddd' | simpleMask:'III-aaa':{'I': '[0-9]' }:true }}<p>
+```
+output: 
+```html
+<p>123-aaa</p>
 ```
 
 ## <a name="3"></a>Patterns

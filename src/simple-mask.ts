@@ -8,21 +8,43 @@ export class SimpleMask {
     '~': new RegExp('[-\+]')
   };
   mask: string;
+
+  /**
+   * set new patterns
+   * @param patterns new patterns
+   * @param clear true if to clear old patterns
+   */
+  protected setPatterns(patterns: any, clear: boolean = false): void {
+    if (!patterns) {
+      return;
+    }
+    try {
+      JSON.parse(JSON.stringify(patterns));
+    } catch {
+      throw new Error('Invalid patterns object');
+    }
+    if (clear) {
+      this.patterns = {};
+    }
+    for (const key in patterns) {
+      if (patterns.hasOwnProperty(key)) {
+        this.patterns[key] = new RegExp(patterns[key]);
+      }
+    }
+  }
+
   /**
    * checks if the char is a pattern, that is, if is a pattern
    * @param char value to check
    * @returns true is a pattern, false if is not
    */
-  protected isPattern(char: string) {
-    let found = false;
-    Object.keys(this.patterns).forEach((key) => {
-      if (key === char) {
-        found = true;
-        return found;
+  protected isPattern(char: string): boolean {
+    for (const key in this.patterns) {
+      if (this.patterns.hasOwnProperty(key) && key === char) {
+        return true;
       }
-    });
-
-    return found;
+    }
+    return false;
   }
 
   /**

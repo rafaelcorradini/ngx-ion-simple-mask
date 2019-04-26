@@ -41,33 +41,12 @@ export class SimpleMaskDirective extends SimpleMask {
 
   @Input('addPatterns')
   set addPatterns(values: any) {
-    if (!values) {
-      return;
-    }
-    try {
-      JSON.parse(JSON.stringify(values));
-    } catch {
-      throw new Error('Invalid object on addPatterns field');
-    }
-    Object.keys(values).forEach((key) => {
-      this.patterns[key] = new RegExp(values[key]);
-    });
+    this.setPatterns(values);
   }
 
   @Input('newPatterns')
   set newPatterns(values: any) {
-    if (!values) {
-      return;
-    }
-    try {
-      JSON.parse(JSON.stringify(values));
-    } catch {
-      throw new Error('Invalid object on newPatterns field');
-    }
-    this.patterns = {};
-    Object.keys(values).forEach((key) => {
-      this.patterns[key] = new RegExp(values[key]);
-    });
+    this.setPatterns(values, true);
   }
 
   /**
