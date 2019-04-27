@@ -109,7 +109,7 @@ patterns = {
 | **x** | letters uppercase or lowercase (a-z, A-Z) |
 |  **~** | - or + |
 | **\*** | letters or digits (a-z, A-Z, 0-9) |
-|  **~** | cancel next pattern effect |
+|  **\\** | cancel next pattern effect |
 
 #### Examples
 
@@ -117,7 +117,7 @@ patterns = {
 | ------- | ------- |
 | 999.999.aaa | 113.123.asd |
 | (AA) 999 | (AS) 123 |
-| 999\x | 999x |
+| 999\~ | 999~ |
 
 ### Set new patterns
 
