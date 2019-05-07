@@ -2,6 +2,8 @@
 [![Build Status](https://travis-ci.com/rafaelcorradini/ngx-ion-simple-mask.svg?branch=master)](https://travis-ci.com/rafaelcorradini/ngx-ion-simple-mask)
 # ngx-ion-simple-Mask
 
+Input mask for Angular/Ionic (Tested with Ionic 4)
+
 ## <a name="1"></a> Installing
 
 ```bash
