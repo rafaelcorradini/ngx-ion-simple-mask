@@ -71,7 +71,7 @@ export class SimpleMaskDirective extends SimpleMask {
    */
   private matchMask(value: string): boolean {
     // value size adjust to mask size
-    const size = this.mask.replace('\\', '').length;
+    const size = this.mask.replace(/\\(?!\\)/g, '').length;
     value = value.substring(0, size);
 
     return value.length === size ? true : false;
