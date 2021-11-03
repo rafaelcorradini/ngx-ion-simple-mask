@@ -127,7 +127,7 @@ The set strings will be used as regex
 ```html
 <input
     simpleMask="IIIxxx"
-    [newPatterns]="{ 'I', '[a-z]', 'x', '[0-9]' }">
+    [newPatterns]="{ 'I': '[a-z]', 'x': '[0-9]' }">
 ```
 example of input: abc123
 
@@ -135,7 +135,7 @@ example of input: abc123
 
 The set strings will be used as regex
 ```html
-<input simpleMask="~III999" [addPatterns]="{ 'I', '[a-z]' }">
+<input simpleMask="~III999" [addPatterns]="{ 'I': '[a-z]' }">
 ```
 example of input: +abc123
 
