@@ -77,7 +77,7 @@ output:
 ```
 output: 
 ```html
-<p>123.321.123-12</p>
+<p>asd-12</p>
 ```
 
 #### example with new patterns(ignoring old patterns)
