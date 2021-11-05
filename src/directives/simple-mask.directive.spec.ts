@@ -146,6 +146,28 @@ describe('SimpleMaskDirective with native input', () => {
       component.mask = '999.999.999-99';
       expect(inputTest('12345675018', fixture)).toBe('123.456.750-18');
     });
+
+    it('should fill with expected mask when type unexpected char', () => {
+      component.mask = '123.999.999-99';
+      expect(inputTest('a', fixture)).toBe('123.');
+    });
+
+    it('should fill with same char when type expected and fillWithExpected is false', () => {
+      component.mask = '123.999.999-99';
+      expect(inputTest('1', fixture)).toBe('1');
+    });
+
+    it('should fill with expected mask when fillWithExpected is true', () => {
+      component.mask = '123.999.999-99';
+      component.fillWithExpected = true;
+      expect(inputTest('a', fixture)).toBe('123.');
+      expect(inputTest('1', fixture)).toBe('123.1');
+    });
+
+    it('should fill with same char when type expected', () => {
+      component.mask = '123.999.999-99';
+      expect(inputTest('1', fixture)).toBe('1');
+    });
   
     it('should add patterns', () => {
       component.mask = '999.999.999-99I';

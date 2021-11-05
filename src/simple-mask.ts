@@ -8,6 +8,7 @@ export class SimpleMask {
     '~': new RegExp('[-\+]')
   };
   mask: string;
+  fillWithExpected: boolean;
 
   /**
    * set new patterns
@@ -74,7 +75,7 @@ export class SimpleMask {
         }
       } else {
         newValue += this.mask[j];
-        if (this.mask[j] !== value[i]) {
+        if (this.mask[j] !== value[i] || this.fillWithExpected) {
           i--;
         }
       }

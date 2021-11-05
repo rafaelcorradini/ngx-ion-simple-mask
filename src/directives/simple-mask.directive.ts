@@ -11,6 +11,7 @@ import { SimpleMask } from './../simple-mask';
 export class SimpleMaskDirective extends SimpleMask {
   @Input('simpleMask') mask: string;
   @Input() clearIfNotMatch: boolean;
+  @Input() fillWithExpected: boolean;
 
   constructor(
     private renderer: Renderer2,
