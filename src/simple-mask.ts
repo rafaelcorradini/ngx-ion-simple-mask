@@ -59,27 +59,61 @@ export class SimpleMask {
     const size = this.mask.replace(/\\(?!\\)/g, '').length;
     value = value.substring(0, size);
 
-    for (let i = 0, j = 0; j < this.mask.length && i < value.length; i++ , j++) {
-      // ignore next special char
-      if (this.mask[j] === '\\') {
-        newValue += this.mask[j + 1];
-        j++;
-        continue;
-      }
-      // test special char
-      if (this.isPattern(this.mask[j])) {
-        if (this.patterns[this.mask[j]].test(value[i])) {
-          newValue += value[i];
-        } else {
-          return newValue;
+    if (this.fillWithExpected) {
+      let i = 0;
+      let prefix = true;
+      for (let j = 0; j < this.mask.length; j++) {
+        // ignore next special char
+        if (this.mask[j] === '\\') {
+          newValue += this.mask[j + 1];
+          j++;
+          continue;
         }
-      } else {
-        newValue += this.mask[j];
-        if (this.mask[j] !== value[i] || this.fillWithExpected) {
-          i--;
+        // test special char
+        if (this.isPattern(this.mask[j])) {
+          if (this.patterns[this.mask[j]].test(value[i])) {
+            newValue += value[i];
+            i++;
+          } else {
+            return newValue;
+          }
+        } else {
+          if (prefix && !value[i]) {
+            return newValue;
+          }
+          newValue += this.mask[j];
+          if (this.mask[j] === value[i] && prefix) {
+            i++;
+          } else {
+            prefix = false;
+          }
+        }
+      }
+    } else {
+      for (let i = 0, j = 0; j < this.mask.length && i < value.length; i++ , j++) {
+        // ignore next special char
+        if (this.mask[j] === '\\') {
+          newValue += this.mask[j + 1];
+          j++;
+          continue;
+        }
+        // test special char
+        if (this.isPattern(this.mask[j])) {
+          if (this.patterns[this.mask[j]].test(value[i])) {
+            newValue += value[i];
+          } else {
+            return newValue;
+          }
+        } else {
+          newValue += this.mask[j];
+  
+          if (this.mask[j] !== value[i]) {
+            i--;
+          }
         }
       }
     }
+
     return newValue;
   }
 }
