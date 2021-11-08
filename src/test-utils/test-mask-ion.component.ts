@@ -9,6 +9,7 @@ import { Component } from "@angular/core";
       [simpleMask]="mask"
       [clearIfNotMatch]="clearIfNotMatch"
       [addPatterns]="addPatterns"
+      [fillWithExpected]="fillWithExpected"
       [newPatterns]="newPatterns"
       [formControl]="formControl"
       [(ngModel)]="ngModelValue"
@@ -21,6 +22,7 @@ export class TestMaskIonComponent {
   ngModelValue: string | number;
   formControl: FormControl = new FormControl(null);
   clearIfNotMatch = false;
+  fillWithExpected = false;
   addPatterns: Object;
   newPatterns: Object;
 }
